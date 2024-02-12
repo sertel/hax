@@ -106,7 +106,7 @@
 in
   stdenv.mkDerivation {
     name = hax.name;
-    buildInputs = [makeWrapper] ++ (lib.optional stdenv.isDarwin libz);
+    buildInputs = [makeWrapper] ++ (lib.optional stdenv.isDarwin [libz]);
     phases = ["installPhase"];
     installPhase = ''
       mkdir -p $out/bin
