@@ -144,7 +144,7 @@
           };
           default = pkgs.mkShell {
             inherit packages inputsFrom LIBCLANG_PATH;
-            buildInputs = with pkgs; lib.optional stdenv.isDarwin libiconv;
+            buildInputs = with pkgs; lib.optional stdenv.isDarwin libz;
           };
         };
       }
