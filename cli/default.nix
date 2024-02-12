@@ -7,6 +7,7 @@
   gcc,
   hax-engine,
   doCheck ? true,
+  libz,
 }: let
   pname = "hax";
   is-webapp-static-asset = path: builtins.match ".*(script[.]js|index[.]html)" path != null;
@@ -105,7 +106,7 @@
 in
   stdenv.mkDerivation {
     name = hax.name;
-    buildInputs = [makeWrapper];
+    buildInputs = [makeWrapper] ++ (lib.optional stdenv.isDarwin libz);
     phases = ["installPhase"];
     installPhase = ''
       mkdir -p $out/bin
