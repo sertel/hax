@@ -44,7 +44,7 @@
   hax = stdenv.mkDerivation {
     name = hax_with_artifacts.name;
     unpackPhase = "true";
-    buildPhase = "true" ++ (lib.optional stdenv.isDarwin libz);
+    buildPhase = "true";
     installPhase = ''
       mkdir -p $out
       cp -r ${hax_with_artifacts}/bin $out/bin
